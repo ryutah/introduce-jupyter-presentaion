@@ -29,10 +29,9 @@ RUN mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
-COPY . ${HOME}
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-WORKDIR ${HOME}
+WORKDIR ${HOME}/app
 
 CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
